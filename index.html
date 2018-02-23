@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tasca 10 - Afegir i eliminar alumnes a una taula</title>
+	<!-- Llibreries de bootstrap afegides directament d'internet-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="js/afegirAlumnes.js"></script>
+</head>
+<body style="background-color:silver">
+	
+	<!-- Formulari -->
+	<div class="container">
+		<br>
+		<!-- Dividim la pantalla en dos div, una mostrarà el formulari per entrar les dades del nou alumne i l'altre la llista d'alumnes-->
+		<div class="card-deck">
+			
+			<div class="card col-sm-3">
+				
+				<div class="card-body">
+					<h5 class="card-title">DADES NOU ALUMNE</h5>
+					<p class="card-text">
+						<form>
+							<div class="form-group">
+								<label for="dni">DNI</label>
+								<input type="text" class="form-control" id="email" placeholder="DNI">
+							</div>
+							<div class="form-group">
+								<label for="email">Nom</label>
+								<input type="text" class="form-control" id="email" placeholder="Nom">
+							</div>
+							<div class="form-group">
+								<label for="email">Llinatges</label>
+								<input type="text" class="form-control" id="email" placeholder="Llinatges">
+							</div>
+							<div class="form-group">
+								<label for="email">Correu electrònic</label>
+								<input type="email" class="form-control" id="email" placeholder="Correu electrònic">
+							</div>
+							<div class="form-group">
+								<label for="nota">Nota</label>
+								<input type="email" class="form-control" id="email" placeholder="Nota">
+							</div>
+							<br>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Afegir</button>
+							</div>
+						</form>
+
+						
+						
+					</p>
+				</div>
+				<div class="card-footer">
+					<!-- Pagina web creada per en Toni Caballero Salas -->
+					<small class="text-muted">&nbsp&copy&nbspToni Caballero Salas</small>
+				</div>
+			</div>
+			
+			<div class="card col-sm-9">
+				<img class="card-img-top" src="img/studiants.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">LLISTA D'ALUMNES</h5>
+					<div class="card-text">
+						
+						<!-- Definim taula en format de  "Hoverable rows" de Bootstrap -->
+						<table class="table table-hover" style="width:100%; text-align:center">
+							<thead><tr>
+								<th>DNI</th>
+								<th>Nom</th>
+								<th>Llinatges</th>
+								<th>Correu electrònic</th>
+								<th>Nota</th>
+								<th>-</th>
+							</tr></thead>
+							<tr><td>41536514D</td>
+								<td>Toni</td>
+								<td>Caballero Salas</td>
+								<td>tcs1988@gmail.com</td>
+								<td>10</td>
+								<td>foto</td>
+							</tr>
+							<tr><td>41536514D</td>
+								<td>Toni</td>
+								<td>Caballero Salas</td>
+								<td>tcs1988@gmail.com</td>
+								<td>10</td>
+								<td>foto</td>
+							</tr>
+						</table>
+						
+					</div>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	<br>
+</body>
+</html>

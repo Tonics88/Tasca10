@@ -12,17 +12,18 @@ function crearFila(nou){
         console.log(nou[i]);
         fila+="<td>"+nou[i]+"</td>";
     }
+    fila+='<td><button type="button" class="btn btn-outline-danger btn-sm" id="btn2">X</button></td>';
     return fila;
 }
 
 function dataActual(){
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //Gener es 0!
-    var yyyy = today.getFullYear();
-    var hh = today.getHours();
-    var mn = today.getMinutes();
-    var ss = today.getSeconds();
+    var data = new Date();
+    var dd = data.getDate();
+    var mm = data.getMonth()+1; //Gener es 0!
+    var yyyy = data.getFullYear();
+    var hh = data.getHours();
+    var mn = data.getMinutes();
+    var ss = data.getSeconds();
 
     if(dd<10) {
         dd = '0'+dd;
@@ -44,13 +45,13 @@ function dataActual(){
         ss = '0'+ss;
     }
 
-    return (dd + '/' + mm + '/' + yyyy+" "+hh+":"+mn+":"+ss);
+    return (dd+'/'+mm+'/'+yyyy+" "+hh+":"+mn+":"+ss);
 }
 
 var alumnes=[];
 
 $(document).ready(function(){
-    $("button").click(function(){
+    $("#btn1").click(function(){
         alumnes.push(new NouAlumne());
         
         for (i in alumnes){
@@ -61,8 +62,12 @@ $(document).ready(function(){
 
         //$("table").append("<tr><td>"+alumnes[alumnes.length-1].dni+"</td></tr>");
         var fila = crearFila(alumnes[alumnes.length-1]);
-        $("table").append("<tr>"+fila+"</tr>"); 
+        $("table").append("<tr id='alu"+(alumnes.length-1)+"'>"+fila+"</tr>"); 
 
         $("#darrerModificat").text("Darrer alummne afegit: "+dataActual());
+    });
+
+    $("#btn2").click(function(){
+        alumnes.splice(0,1);
     });
 });

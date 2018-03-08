@@ -5,6 +5,7 @@
 	<title>Tasca 10 - Afegir i eliminar alumnes a una taula</title>
 	<!-- Llibreries de bootstrap afegides directament d'internet-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/afegirAlumnes.js"></script>
 </head>
 <body style="background-color:silver">
@@ -23,27 +24,27 @@
 						<form>
 							<div class="form-group">
 								<label for="dni">DNI</label>
-								<input type="text" class="form-control" id="email" placeholder="DNI">
+								<input type="text" class="form-control" id="1" placeholder="DNI">
 							</div>
 							<div class="form-group">
 								<label for="email">Nom</label>
-								<input type="text" class="form-control" id="email" placeholder="Nom">
+								<input type="text" class="form-control" id="2" placeholder="Nom">
 							</div>
 							<div class="form-group">
 								<label for="email">Llinatges</label>
-								<input type="text" class="form-control" id="email" placeholder="Llinatges">
+								<input type="text" class="form-control" id="3" placeholder="Llinatges">
 							</div>
 							<div class="form-group">
 								<label for="email">Correu electrònic</label>
-								<input type="email" class="form-control" id="email" placeholder="Correu electrònic">
+								<input type="email" class="form-control" id="4" placeholder="Correu electrònic">
 							</div>
 							<div class="form-group">
 								<label for="nota">Nota</label>
-								<input type="email" class="form-control" id="email" placeholder="Nota">
+								<input type="number" class="form-control" id="5" placeholder="Nota">
 							</div>
 							<br>
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary">Afegir</button>
+								<button type="button" class="btn btn-primary" id="btn1">Afegir</button>
 							</div>
 						</form>
 
@@ -73,13 +74,12 @@
 								<th>Nota</th>
 								<th>-</th>
 							</tr></thead>
-							
 						</table>
 						
 					</div>
 				</div>
 				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
+					<small class="text-muted" id="darrerModificat">Cap alummne afegit</small>
 				</div>
 				
 			</div>

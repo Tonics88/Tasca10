@@ -4,16 +4,23 @@ function NouAlumne() {
     this.llinatges = $('#3').val();
     this.email = $('#4').val();
     this.nota = $('#5').val();
+    this.borrat = false;
 }
 
 function crearFila(nou){
-    fila="";
+    var fila="";
+    
     for (i in nou){
         console.log(nou[i]);
-        fila+="<td>"+nou[i]+"</td>";
+        if (i=="borrat"){
+            fila+='<td><button type="button" class="btn btn-outline-danger btn-sm" id="btn2">X</button></td>';
+        } else {
+            fila+="<td>"+nou[i]+"</td>";
+        }
     }
-    fila+='<td><button type="button" class="btn btn-outline-danger btn-sm" id="btn2">X</button></td>';
-    return fila;
+    $("table").append("<tr id='alu"+(alumnes.length-1)+"'>"+fila+"</tr>"); 
+
+    $("#darrerModificat").text("Darrer alummne afegit: "+dataActual());
 }
 
 function dataActual(){
@@ -54,20 +61,26 @@ $(document).ready(function(){
     $("#btn1").click(function(){
         alumnes.push(new NouAlumne());
         
-        for (i in alumnes){
-            for (j in alumnes[i]){
-                console.log(j+" de la possicio d'array "+ i+" : "+alumnes[i][j]);
+        // for (i in alumnes){
+        //     for (j in alumnes[i]){
+        //         console.log(j+" de la possicio d'array "+ i+" : "+alumnes[i][j]);
+        //     }
+        // }
+
+        crearFila(alumnes[alumnes.length-1]);
+        
+    });
+
+    $( "table" ).on( "click", "#btn2", function(event) {        
+        console.log(event);
+        console.log(event.currentTarget.offsetParent.parentElement.id);
+        console.log(event.currentTarget.offsetParent.parentElement.id.substr(3));
+            if (confirm("Segur que vols borrar l'alumne: "+alumnes[event.currentTarget.offsetParent.parentElement.id.substr(3)].nom+" "+alumnes[event.currentTarget.offsetParent.parentElement.id.substr(3)].llinatges)){
+                $("#"+event.currentTarget.offsetParent.parentElement.id).fadeOut(1000);
+                alumnes[event.currentTarget.offsetParent.parentElement.id.substr(3)].borrat=true;
+                //$("tr").remove("#"+event.currentTarget.offsetParent.parentElement.id);
+                //alumnes.splice((event.currentTarget.offsetParent.parentElement.id.substr(3)),1);
             }
-        }
-
-        //$("table").append("<tr><td>"+alumnes[alumnes.length-1].dni+"</td></tr>");
-        var fila = crearFila(alumnes[alumnes.length-1]);
-        $("table").append("<tr id='alu"+(alumnes.length-1)+"'>"+fila+"</tr>"); 
-
-        $("#darrerModificat").text("Darrer alummne afegit: "+dataActual());
-    });
-
-    $("#btn2").click(function(){
-        alumnes.splice(0,1);
-    });
+        
+      });
 });

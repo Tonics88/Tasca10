@@ -99,6 +99,7 @@ $(document).ready(function(){
             $('#1').removeClass("is-invalid");
             alumnes.push(new NouAlumne());
             crearFila(alumnes[alumnes.length-1]);
+            $("form")[0].reset();
         } else {
             //Si el DNI no era correcte avisam amb el tipo d'error i marcam la casella.
             alert(alertDNI);
